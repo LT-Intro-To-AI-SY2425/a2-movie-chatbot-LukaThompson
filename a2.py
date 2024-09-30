@@ -42,7 +42,16 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
                 #sind = len(source)
                 return result
             else:
-                return None
+                pind += 1
+                accum = ""
+                while source[sind] != pattern[pind]:
+                    accum += source[sind] +" "
+                    sind += 1
+                    print(accum)
+
+                    if sind >= len(source):
+                        return None
+                result.append(accum.rstrip())
         # 3) if we reached the end of the source but not the pattern
         elif sind == len(source):
             return None
@@ -65,7 +74,6 @@ def match(pattern: List[str], source: List[str]) -> List[str]:
 
     return result
 
-
 if __name__ == "__main__":
     assert match(["x", "y", "z"], ["x", "y", "z"]) == [], "test 1 failed"
     assert match(["x", "z", "z"], ["x", "y", "z"]) == None, "test 2 failed"
@@ -74,10 +82,10 @@ if __name__ == "__main__":
     assert match(["x", "_", "z"], ["x", "y", "z"]) == ["y"], "test 5 failed"
     assert match(["x", "_", "_"], ["x", "y", "z"]) == ["y", "z"], "test 6 failed"
     assert match(["%"], ["x", "y", "z"]) == ["x y z"], "test 7 failed"
-    #assert match(["x", "%", "z"], ["x", "y", "z"]) == ["y"], "test 8 failed"
-    #assert match(["%", "z"], ["x", "y", "z"]) == ["x y"], "test 9 failed"
-    #assert match(["x", "%", "y"], ["x", "y", "z"]) == None, "test 10 failed"
-    #assert match(["x", "%", "y", "z"], ["x", "y", "z"]) == [""], "test 11 failed"
+    assert match(["x", "%", "z"], ["x", "y", "z"]) == ["y"], "test 8 failed"
+    assert match(["%", "z"], ["x", "y", "z"]) == ["x y"], "test 9 failed"
+    assert match(["x", "%", "y"], ["x", "y", "z"]) == None, "test 10 failed"
+    assert match(["x", "%", "y", "z"], ["x", "y", "z"]) == [""], "test 11 failed"
     assert match(["x", "y", "z", "%"], ["x", "y", "z"]) == [""], "test 12 failed"
     assert match(["_", "%"], ["x", "y", "z"]) == ["x", "y z"], "test 13 failed"
     assert match(["_", "_", "_", "%"], ["x", "y", "z"]) == [
