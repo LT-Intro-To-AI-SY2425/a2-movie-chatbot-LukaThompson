@@ -13,7 +13,7 @@ This assignment is about learning and applying the while loop and iterating thro
 ## Reflection Questions
 1. What was difficult for you while completing the match function?
 
-
+I kept forgetting weather to use parenthesis or brackets and would get errors and not know where thy were. 
 
 2. Explain how you could use the match function for extracting information from a movie database.
 
