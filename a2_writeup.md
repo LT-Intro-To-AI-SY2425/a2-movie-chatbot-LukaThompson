@@ -17,4 +17,4 @@ I kept forgetting weather to use parenthesis or brackets and would get errors an
 
 2. Explain how you could use the match function for extracting information from a movie database.
 
-
+The match funcion helps to find information on a movie within its database by finding key words and matching them in lists
